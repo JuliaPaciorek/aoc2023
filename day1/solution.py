@@ -50,7 +50,7 @@ numbers = {
     "nine": "9"
 }
 # %%
-#part
+#part 2
 def check_front(line):
     word = ""
     for char in line:
