@@ -1,4 +1,3 @@
-# %%
 '''
 The newly-improved calibration document consists of lines of text; each line originally contained a specific calibration value that the Elves now need to recover. 
 On each line, the calibration value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number.
@@ -10,19 +9,15 @@ a1b2c3d4e5f
 treb7uchet
 In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.
 '''
-#get each line
-# get first and last digit of each line
-# combine 1,2 =  12
-# %%
 from pathlib import Path
-# part 1
 calibration = 0
-input_file = 'C:/Users/julia/repos/aoc/input.txt'
+input_file = 'input.txt'
 for line in Path(input_file).read_text().splitlines():
     numbers = [char for char in line if char.isdigit()]
     calibration += int(numbers[0] + numbers[-1])
 
-# %%
+print(calibration)
+#54630
 '''
 Your calculation isn't quite right. 
 It looks like some of the digits are actually spelled out with letters: 
@@ -49,8 +44,7 @@ numbers = {
     "eight": "8",
     "nine": "9"
 }
-# %%
-#part 2
+
 def check_front(line):
     word = ""
     for char in line:
@@ -74,10 +68,11 @@ def check_back(line):
             for key in numbers:
                 if key in word:
                     return numbers[key]
-# %%
-input_file = 'C:/Users/julia/repos/aoc/input.txt'
+
+input_file = 'input.txt'
 calibration = 0
 for line in Path(input_file).read_text().splitlines():
     calibration += int(check_front(line) + check_back(line))
 
-calibration
+print(calibration)
+#54770
